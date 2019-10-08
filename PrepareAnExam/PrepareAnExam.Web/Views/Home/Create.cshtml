@@ -1,0 +1,189 @@
+﻿@model CreateExamViewModel
+@{
+    ViewData["Title"] = "Sınav Oluşturma";
+}
+<form asp-area="" asp-controller="Home" asp-action="Create" method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Yazı</p>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Title" type="text" class="form-control">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <textarea asp-for="Content" type="text" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Question1.Detail" type="text" class="form-control" placeholder="Soru 1">
+                <span asp-validation-for="Question1.Detail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question1.A" type="text" class="form-control" placeholder="A">
+                <span asp-validation-for="Question1.A" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question1.C" type="text" class="form-control" placeholder="C">
+                <span asp-validation-for="Question1.C" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question1.B" type="text" class="form-control" placeholder="B">
+                <span asp-validation-for="Question1.B" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question1.D" type="text" class="form-control" placeholder="D">
+                <span asp-validation-for="Question1.D" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-5">
+                    <div class="form-group">
+                        <select asp-for="Question1.Answer" asp-items="@Model.AnswerOptions" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Question2.Detail" type="text" class="form-control" placeholder="Soru 2">
+                <span asp-validation-for="Question2.Detail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question2.A" type="text" class="form-control" placeholder="A">
+                <span asp-validation-for="Question1.A" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question2.C" type="text" class="form-control" placeholder="C">
+                <span asp-validation-for="Question2.C" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question2.B" type="text" class="form-control" placeholder="B">
+                <span asp-validation-for="Question2.B" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question2.D" type="text" class="form-control" placeholder="D">
+                <span asp-validation-for="Question2.D" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-5">
+                    <div class="form-group">
+                        <select asp-for="Question2.Answer" asp-items="@Model.AnswerOptions" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Question3.Detail" type="text" class="form-control" placeholder="Soru 3">
+                <span asp-validation-for="Question3.Detail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question3.A" type="text" class="form-control" placeholder="A">
+                <span asp-validation-for="Question3.A" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question3.C" type="text" class="form-control" placeholder="C">
+                <span asp-validation-for="Question3.C" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question3.B" type="text" class="form-control" placeholder="B">
+                <span asp-validation-for="Question3.B" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question3.D" type="text" class="form-control" placeholder="D">
+                <span asp-validation-for="Question3.D" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-5">
+                    <div class="form-group">
+                        <select asp-for="Question3.Answer" asp-items="@Model.AnswerOptions" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Question4.Detail" type="text" class="form-control" placeholder="Soru 4">
+                <span asp-validation-for="Question4.Detail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question4.A" type="text" class="form-control" placeholder="A">
+                <span asp-validation-for="Question4.A" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question4.C" type="text" class="form-control" placeholder="C">
+                <span asp-validation-for="Question4.C" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input asp-for="Question4.B" type="text" class="form-control" placeholder="B">
+                <span asp-validation-for="Question4.B" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Question4.D" type="text" class="form-control" placeholder="D">
+                <span asp-validation-for="Question4.D" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-5">
+                    <div class="form-group">
+                        <select asp-for="Question4.Answer" asp-items="@Model.AnswerOptions" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <button type="submit" class="btn btn-primary">Sınav Oluştur</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+
+

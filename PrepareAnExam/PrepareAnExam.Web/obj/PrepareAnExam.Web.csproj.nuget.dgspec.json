@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\DOSYALAR\\Programlama\\Visual Studio\\Projects\\Grup_Proje\\PrepareAnExam\\PrepareAnExam.Web\\PrepareAnExam.Web.csproj": {}
+  },
+  "projects": {
+    "D:\\DOSYALAR\\Programlama\\Visual Studio\\Projects\\Grup_Proje\\PrepareAnExam\\PrepareAnExam.Web\\PrepareAnExam.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DOSYALAR\\Programlama\\Visual Studio\\Projects\\Grup_Proje\\PrepareAnExam\\PrepareAnExam.Web\\PrepareAnExam.Web.csproj",
+        "projectName": "PrepareAnExam.Web",
+        "projectPath": "D:\\DOSYALAR\\Programlama\\Visual Studio\\Projects\\Grup_Proje\\PrepareAnExam\\PrepareAnExam.Web\\PrepareAnExam.Web.csproj",
+        "packagesPath": "C:\\Users\\EyupPC\\.nuget\\packages\\",
+        "outputPath": "D:\\DOSYALAR\\Programlama\\Visual Studio\\Projects\\Grup_Proje\\PrepareAnExam\\PrepareAnExam.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\EyupPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.15, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

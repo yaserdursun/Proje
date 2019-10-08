@@ -1,0 +1,227 @@
+﻿@*@model DetailExamViewModel*@
+@*@model PrepareAnExam.Web.DB.Tables.Exam*@
+@model PrepareAnExam.Web.Models.HomeViewModels.DetailExamViewModel
+@*@model PrepareAnExam.Web.DB.Tables.Exam*@
+@{
+    ViewData["Title"] = "Sınav Görüntüleme";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="row">
+    <div class="col-12">
+        <a class="list-group-item alert-info">@ViewBag.RssTitle</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    @Html.Raw(ViewBag.RssContent)
+                </p>
+            </div>
+        </div>
+
+        <form class="form-control" id="form" @*action="@Url.Action("FinishExam","Exam")"*@ method="post">
+            @*@Html.HiddenFor(x => x.ID)*@
+            <div class="row form-group " id="panel-question">
+                @for (var i = 0; i < 4; i++)
+                {
+
+
+
+
+
+
+                    <div class="col-md-6 form-group">
+
+                        <div class="row form-group col-12 ">
+                            <div class="input-group input-group-lg ">
+                                <span class="input-group-addon" id="sizing-addon1">Soru @(i + 1)</span>
+                                @Html.TextBoxFor(x => x.Question[i].Detail, new { @class = "form-control", @readonly = "readonly" })
+
+                            </div>
+                        </div>
+                        <div class="row " id="answers-@i">
+                            @{ List<string> a = new List<string>() { "A", "B", "C", "D" };
+                            }
+
+                           
+
+                        <div class="panel-answer-@i col-12 form-group ">
+                            <div class="input-group input-group-sm cevap-@i">
+                                <span class="input-group-addon" id="sizing-addon1">A)</span>
+                                @Html.TextBoxFor(x => x.Question[i].A, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                @*@Html.HiddenFor(x => x.Question[i].Answers[k].IsRight, new { @id = "IsRight-" + i })*@
+
+                            </div>
+                        </div>
+                        <div class="panel-answer-@i col-12 form-group ">
+                            <div class="input-group input-group-sm cevap-@i">
+
+                                <span class="input-group-addon" id="sizing-addon1">B)</span>
+                                @Html.TextBoxFor(x => x.Question[i].B, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                @*@Html.HiddenFor(x => x.Question[i].Answers[k].IsRight, new { @id = "IsRight-" + i })*@
+
+                            </div>
+                        </div>
+                        <div class="panel-answer-@i col-12 form-group ">
+                            <div class="input-group input-group-sm cevap-@i">
+
+                                <span class="input-group-addon" id="sizing-addon1">C)</span>
+                                @Html.TextBoxFor(x => x.Question[i].C, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                @*@Html.HiddenFor(x => x.Question[i].Answers[k].IsRight, new { @id = "IsRight-" + i })*@
+
+                            </div>
+                        </div>
+                        <div class="panel-answer-@i col-12 form-group ">
+                            <div class="input-group input-group-sm cevap-@i">
+
+                                <span class="input-group-addon" id="sizing-addon1">D)</span>
+                                @Html.TextBoxFor(x => x.Question[i].D, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                @*@Html.HiddenFor(x => x.Question[i].Answers[k].IsRight, new { @id = "IsRight-" + i })*@
+
+                            </div>
+                        </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                }
+            </div>
+            <div class="row">
+                <button class="btn btn-block btn-lg btn-primary " id="btn-complete" type="button">Sınavı Tamamla</button>
+
+            </div>
+        </form>
+
+
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+
+
+
+    function hiddenFalseByID(id) {
+        $.each(["0", "1", "2", "3"], function (i, deger) {
+            $(".panel-answer-" + id).find(".cevap-" + deger).find("#IsRight-" + id).val("false");
+        });
+    }
+    $.each(["0", "1", "2", "3"], function (i, value) {
+        $.each(["0", "1", "2", "3"], function (i, deger) {
+            $(".panel-answer-" + value).find(".cevap-" + deger).find("#IsRight-" + value).val("false");
+
+        $(".panel-answer-" + value).click(function () {
+            debugger
+            hiddenFalseByID(value);
+            $("#answers-" + value).find(".grey").removeClass("grey");
+            $(this).addClass("grey");
+            $(".panel-answer-" + value).find(".cevap-" + deger).find("#IsRight-" + value).val("false");
+
+
+
+
+            $(this).find(":hidden").val("true");
+
+            return false;
+        });
+        });
+    });
+    $("#btn-complete").click(function () {
+        if ($(this).text() == "Sınavı Tamamla") {
+            $(this).text("Sınav Bitti - Anasayfa ya dönmek için tıkla");
+            $.each(["0", "1", "2", "3"], function (i, value) {
+
+                $(".panel-answer-" + value).removeClass("grey");
+
+                $.each(["0", "1", "2", "3"], function (k, deger) {
+                    debugger
+                    var isRight = $(".panel-answer-" + value).find(".cevap-"+deger).val()
+                    var id = $("#answers-" + value).find("#id-"+deger).val();
+                    if (isRight=="true") {
+
+                        $.ajax({
+
+                            type: "post",
+                            url: '@Url.Action("CheckAnswer", "Home")',
+                            data: { id: id, IsRight:isRight},
+                            datatype: "json",
+                            success: function (data) {
+                                if (data != null) {
+                                    if (data == "true") {
+                                        debugger
+
+                                        var isRight = $(".panel-answer-" + value).find(".cevap-" + deger).parent().addClass("green");
+
+                                    }
+                                    if (data == "false") {
+                                        debugger
+
+                                        var isRight = $(".panel-answer-" + value).find(".cevap-" + deger).parent().addClass("red");
+
+                                    }
+
+                                }
+
+
+                            },
+                            error: function () {
+                                alert("İşlem Sırasında Hata Oluştu");
+                            }
+
+                        });
+
+                    }
+
+                });
+
+
+            });
+
+        } else {
+            window.location = '@Url.Action("Index", "Home")';
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <script>
+        $(function () {
+
+            //$.ajax({
+            //    type: "GET",
+            //    url: "",
+            //    dataType: "json",
+            //   //...
+            //});
+        });
+    </script>
+}

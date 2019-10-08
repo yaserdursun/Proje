@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ListExamViewModel>
+@{
+    ViewData["Title"] = "Sınav Listesi";
+}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Başlık</th>
+                <th>Tarih</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        <a asp-area="" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a>
+
+                                    </th>
+                    <th>@item.Created.ToString("yyyy-MM-dd")</th>
+                    <th>
+                        <a asp-area="" asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
